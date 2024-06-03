@@ -8,4 +8,8 @@ import { COURSES } from "../db-data";
 })
 export class AppComponent {
   courses: any = COURSES;
+
+  onCustomEvent(event) {
+    console.log("Custom event", event);
+  }
 }
