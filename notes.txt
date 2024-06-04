@@ -1,28 +1,45 @@
-We have some built-in pipe features in ANgular that can help us to transform the data.
+PIPES {
+    We have some built-in pipe features in ANgular that can help us to transform the data.
 
-Some examples are
+    Some examples are
 
-DATE
-Date | date: 'short' -- This can be used to format the date, in this case in a short format. Can be used other arguments
-Date | date: 'MM dd yyyy'
+    DATE
+    Date | date: 'short' -- This can be used to format the date, in this case in a short format. Can be used other arguments
+    Date | date: 'MM dd yyyy'
 
-TEXT FORMATING
-Text | uppercase -- This will convert the text to uppercase
-Text | lowercase -- This will convert the text to lowercase
-Text | titlecase -- This will convert the text to titlecase (capitalize)
+    TEXT FORMATING
+    Text | uppercase -- This will convert the text to uppercase
+    Text | lowercase -- This will convert the text to lowercase
+    Text | titlecase -- This will convert the text to titlecase (capitalize)
 
-NUMBER FORMATING
-Number | currency -- This will convert the number to currency
-Number | currency: 'EUR' -- This will convert the number to currency with EUR
-Number | percent -- This will convert the number to percentage
-Number | number -- This will convert the number to number
-Number | number : '2.2-5' -- This will convert the number to number with 2 digits before the decimal and 2 minimun digits and 5 maximum after the decimal
+    NUMBER FORMATING
+    Number | currency -- This will convert the number to currency
+    Number | currency: 'EUR' -- This will convert the number to currency with EUR
+    Number | percent -- This will convert the number to percentage
+    Number | number -- This will convert the number to number
+    Number | number : '2.2-5' -- This will convert the number to number with 2 digits before the decimal and 2 minimun digits and 5 maximum after the decimal
 
-JSON FORMATING
-Object | json -- This will convert the object to json
+    JSON FORMATING
+    Object | json -- This will convert the object to json
 
-DATA FORMATING
-Data | slice: 0:5 -- This will slice the data from 0 to 5
+    DATA FORMATING
+    Data | slice: 0:5 -- This will slice the data from 0 to 5
 
-OBJECT FORMATING
-Object | keyvalue -- This will convert the object to keyvalue (That we can use to iterate over the object). We can access the value like item.value and the key like item.key
+    OBJECT FORMATING
+    Object | keyvalue -- This will convert the object to keyvalue (That we can use to iterate over the object). We can access the value like item.value and the key like item.key
+
+}
+
+QueryList {
+    When using ViewChildren, we get a return type of QueryList. QueryList have a lot of methods that we can use to manipulate the data.
+
+    Some examples are
+
+    QueryList.toArray() -- This will convert the QueryList to an array
+    QueryList.first() -- This will return the first element of the QueryList
+    QueryList.last() -- This will return the last element of the QueryList
+    QueryList.length -- This will return the length of the QueryList
+    QueryList.changes -- This will return an observable that we can subscribe to get the changes of the QueryList, returning a Observable<QueryList>
+    QueryList.notifyOnChanges() -- This will notify the changes of the QueryList
+    QueryList.forEach() -- This will map the QueryList to another QueryList (And all the others array methods);
+}
