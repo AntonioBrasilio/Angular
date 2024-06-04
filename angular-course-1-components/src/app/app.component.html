@@ -1,12 +1,13 @@
 <div class="top-menu">
-  <img
-    class="logo"
-    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
-  />
+    <img class="logo" src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png" />
 </div>
-
-<div class="courses">
-  @for(course of courses; track course.id) {
-    <course-card (customEvent)="onCustomEvent($event)" [data]="course" />
-  }
+<div>
+    <div class="courses">
+        @for(course of courses; track course.id; let index = $index; let count = $count; let first = $first; let last = $last; let even = $even; let
+        odd = $odd) {
+        <course-card [class.is-first]="first" [class.is-last]="last" [class.is-even]="even" [class.is-odd]="odd" (customEvent)="onCustomEvent($event)" [data]="course" />
+        } @empty {
+        <h1>No courses found!</h1>
+        }
+    </div>
 </div>
