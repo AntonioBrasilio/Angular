@@ -13,5 +13,17 @@
         {{ data.longDescription }}
     </div>
 
+    <div class="course-category">
+        @switch (data.category) { @case ('BEGINNER') {
+        <div class="category">Beginner</div>
+        } @case ('INTERMEDIATE') {
+        <div class="category">Intermediate</div>
+        } @case ('ADVANCED') {
+        <div class="category">Advanced</div>
+        } @default {
+        <div class="category">Unknown</div>
+        } }
+    </div>
+
     <button (click)="onHandleClick()">View Course</button>
 </div>
