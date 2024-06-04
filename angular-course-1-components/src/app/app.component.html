@@ -15,8 +15,11 @@
             [class.is-odd]="odd"
             (customEvent)="onCustomEvent($event)"
             [data]="course">
-            <p id="totalCount">Total courses: {{ $count }}</p>
-            <p id="index">Index: {{ $index }}</p>
+            <div #paragraphs>
+                <p #countParagraph id="totalCount">Total courses: {{ $count }}</p>
+                <p #indexParagraph id="index">Index: {{ $index }}</p>
+            </div>
+            <div #paragraphs>Teste</div>
         </course-card>
         } @empty {
         <h1>No courses found!</h1>

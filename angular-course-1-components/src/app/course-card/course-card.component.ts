@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ContentChildren } from "@angular/core";
 import { Course } from "../model/course";
 
 @Component({
@@ -14,6 +14,20 @@ export class CourseCardComponent {
 
     @Output()
     customEvent = new EventEmitter<Course>();
+
+    @ContentChild("indexParagraph")
+    indexParagraph: ElementRef;
+
+    @ContentChildren("paragraphs")
+    paragraphs: ElementRef[];
+
+    ngAfterViewInit() {
+        console.log("Index paragraph: ", this.indexParagraph);
+    }
+
+    ngAfterContentInit() {
+        console.log("Paragraphs: ", this.paragraphs);
+    }
 
     onHandleClick() {
         console.log("Card was clicked");
