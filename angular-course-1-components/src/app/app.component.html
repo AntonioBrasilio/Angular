@@ -5,10 +5,9 @@
 <button (click)="onAddNewCourse()">Add new course</button>
 
 <ng-template #titleForCourses let-title="courses_title">
-    <h1 class="course-title">{{ title }}</h1>
+    <div class="course-title">{{ title }}</div>
 </ng-template>
 
-<ng-container *ngTemplateOutlet="titleForCourses; context: { courses_title: 'The title for the courses' }" />
 
 <div>
     <div class="courses">
@@ -20,6 +19,7 @@
             [class.is-even]="even"
             [class.is-odd]="odd"
             (customEvent)="onCustomEvent($event)"
+            [titleTemplate]="titleForCourses"
             [data]="course">
             <div #paragraphs>
                 <p #countParagraph id="totalCount">Total courses: {{ $count }}</p>

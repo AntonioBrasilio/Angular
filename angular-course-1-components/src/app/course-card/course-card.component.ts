@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ContentChildren } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ContentChildren, TemplateRef } from "@angular/core";
 import { Course } from "../model/course";
 
 @Component({
@@ -11,6 +11,9 @@ export class CourseCardComponent {
         required: true,
     })
     data: Course;
+
+    @Input()
+    titleTemplate: TemplateRef<any>;
 
     @Output()
     customEvent = new EventEmitter<Course>();
