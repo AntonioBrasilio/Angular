@@ -2,6 +2,7 @@ import { Directive, Host, HostBinding, HostListener, Output, EventEmitter } from
 
 @Directive({
     selector: "[highlighted]",
+    exportAs: "hglt",
 })
 export class HighlightedDirective {
     constructor() {}
@@ -31,6 +32,11 @@ export class HighlightedDirective {
     @HostListener("mouseleave")
     onMouseLeave() {
         this.isHighlighted = false;
+        this.highlightedEvent.emit(this.isHighlighted);
+    }
+
+    toggle() {
+        this.isHighlighted = !this.isHighlighted;
         this.highlightedEvent.emit(this.isHighlighted);
     }
 }
