@@ -7,7 +7,7 @@ export interface AppConfig {
 
 export const APP_CONFIG: AppConfig = {
     apiEndpoint: "http://localhost:9000",
-    cacheSize: 10
-}
+    cacheSize: 10,
+};
 
-export const CONFIG_TOKEN = new InjectionToken<AppConfig>("CONFIG_TOKEN");
+export const CONFIG_TOKEN = new InjectionToken<AppConfig>("CONFIG_TOKEN", { providedIn: "root", factory: () => APP_CONFIG });

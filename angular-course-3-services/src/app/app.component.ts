@@ -10,13 +10,7 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from "src/configuration/config";
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    styleUrls: ["./app.component.css"],
-    providers: [
-        {
-            provide: CONFIG_TOKEN,
-            useValue: APP_CONFIG,
-        },
-    ],
+    styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
     courses$ = new Observable<Course[]>();
