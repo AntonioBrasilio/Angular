@@ -19,4 +19,10 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.courses$ = this.coursesService.loadCourses();
     }
+
+    save(event: Course) {
+        this.coursesService.saveCourse(event).subscribe((res) => {
+            console.log("Course saved!");
+        });
+    }
 }
