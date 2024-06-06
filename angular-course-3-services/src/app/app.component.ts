@@ -14,7 +14,7 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from "src/configuration/config";
     providers: [
         {
             provide: CONFIG_TOKEN,
-            useFactory: () => APP_CONFIG,
+            useValue: APP_CONFIG,
         },
     ],
 })
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.courses$ = this.coursesService.loadCourses();
+        console.log("App config", this.appConfig);
     }
 
     save(event: Course) {
