@@ -10,10 +10,12 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from "src/configuration/config";
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    styleUrls: ["./app.component.css"]
+    styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
     courses$ = new Observable<Course[]>();
+
+    coursesTotal = COURSES.length;
 
     constructor(private coursesService: CoursesService, @Inject(CONFIG_TOKEN) private appConfig: AppConfig) {}
 
