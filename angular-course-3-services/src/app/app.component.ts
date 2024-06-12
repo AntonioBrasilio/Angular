@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
 
     coursesTotal = COURSES.length;
 
+    performPrefetch = false;
+
     constructor(private coursesService: CoursesService, @Inject(CONFIG_TOKEN) private appConfig: AppConfig, private injector: Injector) {}
 
     ngOnInit() {
@@ -27,6 +29,10 @@ export class AppComponent implements OnInit {
 
         const htmlCustomElement = createCustomElement(CourseTitleComponent, { injector: this.injector });
         customElements.define("course-title", htmlCustomElement);
+    }
+
+    changePerformPrefetch() {
+        this.performPrefetch = true;
     }
 
     save(event: Course) {

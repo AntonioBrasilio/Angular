@@ -7,10 +7,11 @@
 <div class="demo-triggers">
     <input placeholder="Type to trigger prefetch" #prefecth/>
     <button #display>Trigger display</button>
+    <button (click)="changePerformPrefetch()">Prefetch button</button>
 </div>
 
 <div>
-    @defer (on interaction(display); prefetch on hover(header)) {
+    @defer (on interaction(display); prefetch when performPrefetch) {
     <div class="courses" *ngIf="courses$ | async | filterByCategory : 'ADVANCED' as courses">
         <course-card (courseChanged)="save($event)" *ngFor="let course of courses" [course]="course">
             <course-image [src]="course.iconUrl"></course-image>
