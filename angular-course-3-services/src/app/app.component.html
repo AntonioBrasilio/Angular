@@ -5,9 +5,13 @@
 <h1 i18n>{coursesTotal, plural, =0 {No courses available} =1 {One course available} other {A total of {{ coursesTotal }} is available} }</h1>
 
 <div>
+    @defer {
     <div class="courses" *ngIf="courses$ | async | filterByCategory : 'ADVANCED' as courses">
         <course-card (courseChanged)="save($event)" *ngFor="let course of courses" [course]="course">
             <course-image [src]="course.iconUrl"></course-image>
         </course-card>
     </div>
+    } @placeholder (minimum 3s) {
+    <h2>This is the placeholder!</h2>
+    }
 </div>
