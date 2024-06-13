@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, Injector, OnInit, QueryList, ViewChild, ViewChildren } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Inject, Injector, OnInit, QueryList, ViewChild, ViewChildren, computed, signal } from "@angular/core";
 import { COURSES } from "../db-data";
 import { Course } from "./model/course";
 import { CourseCardComponent } from "./course-card/course-card.component";
@@ -21,6 +21,9 @@ export class AppComponent implements OnInit {
 
     performPrefetch = false;
 
+    counter = signal(0);
+    derivedCounter = computed(() => this.counter() * 10);
+
     constructor(private coursesService: CoursesService, @Inject(CONFIG_TOKEN) private appConfig: AppConfig, private injector: Injector) {}
 
     ngOnInit() {
@@ -33,6 +36,10 @@ export class AppComponent implements OnInit {
 
     changePerformPrefetch() {
         this.performPrefetch = true;
+    }
+
+    increment() {
+        this.counter.update((value) => value + 1);
     }
 
     save(event: Course) {

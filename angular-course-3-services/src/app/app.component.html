@@ -4,8 +4,12 @@
 
 <h1 #header i18n>{coursesTotal, plural, =0 {No courses available} =1 {One course available} other {A total of {{ coursesTotal }} is available} }</h1>
 
+<div>Counter signal: {{ counter() }}</div>
+<div>Derived signal: {{ derivedCounter() }}</div>
+<button (click)="increment()">Increment signal</button>
+
 <div class="demo-triggers">
-    <input placeholder="Type to trigger prefetch" #prefecth/>
+    <input placeholder="Type to trigger prefetch" #prefecth />
     <button #display>Trigger display</button>
     <button (click)="changePerformPrefetch()">Prefetch button</button>
 </div>
