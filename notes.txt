@@ -43,3 +43,15 @@ QueryList {
     QueryList.notifyOnChanges() -- This will notify the changes of the QueryList
     QueryList.forEach() -- This will map the QueryList to another QueryList (And all the others array methods);
 }
+
+FORMS {
+    When using FormsModule, we have some built-in directives that we can use to validate the form.
+
+    Some examples are
+
+    required - This will validate if the input is required
+    minlength - This will validate the minimum length of the input (The object have requiredLenght and actualLenght properties that we can use to show the error message)
+    maxlength - This will validate the maximum length of the input (The object have requiredLenght and actualLenght properties that we can use to show the error message)
+    pattern - This will validate the pattern of the input
+    email - This will validate if the input is an email
+}
